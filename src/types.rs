@@ -14,13 +14,13 @@ pub struct Decl {
 #[derive(Debug)]
 pub enum Stmt {
     Nop,
-    Block (Vec<Stmt>),
+    Block(Vec<Stmt>),
     Assignment {
         name: String,
         expr: Expr,
     },
-    IoRead (String),
-    IoWrite (Expr),
+    IoRead(String),
+    IoWrite(Expr),
     If {
         cond: Cond,
         stmt: Box<Stmt>,
@@ -38,9 +38,9 @@ pub enum Stmt {
 
 #[derive(Debug)]
 pub enum Expr {
-    Number (u32),
-    Name (String),
-    Expr (Box<Expr>),
+    Number(u64),
+    Name(String),
+    Expr(Box<Expr>),
     Unop {
         op: Unop,
         expr: Box<Expr>,
@@ -56,7 +56,7 @@ pub enum Expr {
 pub enum Cond {
     True,
     False,
-    Nop (Box<Cond>),
+    Nop(Box<Cond>),
     Comp {
         op: Compop,
         left: Expr,
