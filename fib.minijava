@@ -1,0 +1,11 @@
+int i, j, max, tmp;
+
+max = read();
+i = 0;
+j = 1;
+while (i <= max) {
+    write(i);
+    tmp = i + j;
+    i = j;
+    j = tmp;
+}
