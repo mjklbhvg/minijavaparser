@@ -216,8 +216,8 @@ pub fn run(ast: &Program) {
         let rel = (*jump_targets.get(target).unwrap() as i32) - (*jump as i32);
         code[*jump - 4] = (rel & 0xff) as u8;
         code[*jump - 3] = ((rel >> 8) & 0xff) as u8;
-        code[*jump - 2] = ((rel >> 8) & 0xff) as u8;
-        code[*jump - 1] = ((rel >> 8) & 0xff) as u8;
+        code[*jump - 2] = ((rel >> 16) & 0xff) as u8;
+        code[*jump - 1] = ((rel >> 24) & 0xff) as u8;
     }
 
     // Save the generated code for debugging

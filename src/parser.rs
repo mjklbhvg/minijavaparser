@@ -292,7 +292,7 @@ fn name<'a, E: ParseError<&'a str>>(i: &'a str)
         |i| !(is_alphanumeric(i as u8) || i == '$' || i == '_')
     ), |s| String::from(s))(i)?;
 
-    // the singe underscore is reserved
+    // the single underscore is reserved
     if name.eq("_") {
         return fail(i);
     }
